@@ -149,8 +149,17 @@
     <ClInclude Include="src\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\dirt.png" />
     <Image Include="assets\enemy.png" />
+    <Image Include="assets\grass.png" />
     <Image Include="assets\player.png" />
+    <Image Include="assets\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libpng16-16.dll" />
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="zlib1.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
