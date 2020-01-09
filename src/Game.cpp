@@ -6,13 +6,15 @@
 GameObject* player;
 GameObject* enemy;
 
+SDL_Renderer* Game::renderer = nullptr;
+
 Game::Game(){
 
 }
 Game::~Game(){
 
 }
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen){
+void Game::init(const char* title, int width, int height, bool fullscreen){
 	int flags = 0;
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -22,7 +24,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {// Successfully init subsystem
 		std::cout << "Subsystem initialized" << std::endl;
 
-		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 		
 		// Anything other than zero means window has been created
 		if (window) {
@@ -42,8 +44,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	player = new GameObject("assets/player.png", renderer, 0, 0);
-	enemy = new GameObject("assets/enemy.png", renderer, 50, 50);
+	player = new GameObject("assets/player.png", 0, 0);
+	enemy = new GameObject("assets/enemy.png", 50, 50);
 
 }
 

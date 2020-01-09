@@ -18,7 +18,7 @@ public:
 	// Destructor
 	~Game();
 
-	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+	void init(const char* title, int width, int height, bool fullscreen);
 	
 	void handleEvents();
 	void update();
@@ -27,15 +27,12 @@ public:
 
 	bool running() { return isRunning; }
 
-
+	static SDL_Renderer *renderer;
 
 private:
 	bool isRunning;
 	int count = 0;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
-
-
 
 };
 

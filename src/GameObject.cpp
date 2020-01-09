@@ -3,9 +3,9 @@
 #include "GameObject.h"
 
 // Constructor, creates an object
-GameObject::GameObject(const char* texturesheet, SDL_Renderer* ren, int x, int y) {
-	renderer = ren;
-	objTexture = TextureManager::LoadTexture(texturesheet, ren);
+GameObject::GameObject(const char* texturesheet, int x, int y) {
+
+	objTexture = TextureManager::LoadTexture(texturesheet);
 	
 	// Initial positions
 	xpos = x;
@@ -33,5 +33,5 @@ void GameObject::Update() {
 
 // Draws texture
 void GameObject::Render() {
-	SDL_RenderCopy(renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
